@@ -1,5 +1,3 @@
-// app/api/ip/route.js (Next.js 13+ with App Router)
-
 export async function GET(request) {
     // Get the user's IP address from the request headers
     const forwarded = request.headers.get("x-forwarded-for");

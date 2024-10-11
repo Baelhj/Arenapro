@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 
 
-const myIp = () => {
+const MyIp = () => {
   const [ip, setIP] = useState(null);
   useEffect(() => {
     const fetchIP = async () => {
@@ -64,4 +64,4 @@ const myIp = () => {
   )
 }
 
-export default myIp
+export default MyIp
