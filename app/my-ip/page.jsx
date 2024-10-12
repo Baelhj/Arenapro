@@ -4,9 +4,6 @@ import React from 'react'
 import { useEffect, useState } from "react";
 
 
-
-
-
 const MyIp = () => {
   const [ip, setIP] = useState(null);
   useEffect(() => {
@@ -18,6 +15,23 @@ const MyIp = () => {
   
     fetchIP();
   }, [])
+
+
+  const [ipData, setIpData] = useState(null)
+  useEffect(() => {
+    const fetchIpData = async () => {
+    try {
+      const response = await fetch("https://get.geojs.io/v1/ip/geo.json");
+      const data = await response.json;
+      setIpData(data)
+    } catch (error) {
+      console.error("Error fetching IP data:", error);
+    }
+  }
+  
+    fetchIpData();
+  }, [])
+  
   
   return (
     <div>
@@ -26,24 +40,32 @@ const MyIp = () => {
         <div>
           <h3>My IP Information:</h3>
         </div>
-        <div>
+
+        { ipData ?
+        (<div>
         <p>
           <span>ISP:</span>
-          <span></span>
+          <span>{ipData.organization_name}</span>
         </p>
         <p>
           <span>City:</span>
-          <span></span>
+          <span>{ipData.city}</span>
         </p>
         <p>
           <span>Region:</span>
-          <span></span>
+          <span>{ipData.region}</span>
         </p>
         <p>
           <span>Country:</span>
-          <span></span>
+          <span>{ipData.country}</span>
         </p>
-        </div>
+        </div>)
+
+        :
+
+        (<p>LoAdinG...</p>)
+        }
+
       </div>
 
       {/* MIDDLE SIDE */}
