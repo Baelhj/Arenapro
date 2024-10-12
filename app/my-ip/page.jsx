@@ -44,20 +44,20 @@ const MyIp = () => {
         { ipData ?
         (<div>
         <p>
-          <span>ISP:</span>
-          <span>{ipData.organization_name}</span>
+          <span>ISP: </span>
+          <span>{ipData.organization_name || " Not dedected" }</span>
         </p>
         <p>
-          <span>City:</span>
-          {ipData.city ? <span>{ipData.city}</span> : <p>Not dedected</p> }
+          <span>City: </span>
+          <span>{ipData.city || " Not dedected" }</span>
         </p>
         <p>
-          <span>Region:</span>
-          {ipData.region ? <span>{ipData.region}</span> : <p>Not dedected</p> }
+          <span>Region: </span>
+          <span>{ipData.region || " Not dedected" }</span> 
         </p>
         <p>
-          <span>Country:</span>
-          <span>{ipData.country}</span>
+          <span>Country: </span>
+          <span>{ipData.country || " Not dedected" }</span>
         </p>
         </div>)
 
