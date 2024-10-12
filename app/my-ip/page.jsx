@@ -53,7 +53,7 @@ const MyIp = () => {
         </p>
         <p>
           <span>Region:</span>
-          <span>{ipData.region}</span>
+          {ipData.region ? <span>{ipData.region}</span> : <p>Not dedected</p> }
         </p>
         <p>
           <span>Country:</span>
